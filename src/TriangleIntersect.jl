@@ -1,6 +1,6 @@
 module TriangleIntersect
 
-import Base: -,*,+,/, intersect
+import Base: -,*,+,/,√, intersect
 
 export Point, Triangle, Ray, Intersection, no_intersection
 
@@ -18,7 +18,7 @@ end
 cross(p1::Point, p2::Point) = Point(p1.y*p2.z-p1.z*p2.y, -p1.x*p2.z+p1.z*p2.x, p1.x*p2.y-p1.y*p2.x)
 
 /(p::Point, n::Number) = Point(p.x/n, p.y/n, p.z/n)
-unitize(p::Point) = p/(p*p)
+unitize(p::Point) = p/√(p*p)
 
 struct Triangle
     a::Point
